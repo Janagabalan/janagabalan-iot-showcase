@@ -1,5 +1,5 @@
 
-import { ArrowDown, Download } from "lucide-react";
+import { ArrowDown, Download, Sparkles, Code, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Hero = () => {
@@ -9,34 +9,70 @@ const Hero = () => {
   };
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center pt-20 px-4">
-      <div className="container mx-auto">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+    <section id="hero" className="min-h-screen flex items-center justify-center pt-20 px-4 relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50/50 to-teal-50/50 dark:from-slate-900 dark:via-slate-800/50 dark:to-slate-900"></div>
+      
+      {/* Animated Background Circles */}
+      <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-teal-400/20 to-blue-400/20 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+      
+      <div className="container mx-auto relative z-10">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Content */}
           <div className="space-y-8 animate-fade-in">
-            <div className="space-y-4">
-              <h1 className="text-5xl lg:text-7xl font-bold text-slate-800 dark:text-white leading-tight">
-                Hi, I'm <span className="text-teal-600 dark:text-teal-400">Janagabalan</span>
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-teal-100 to-blue-100 dark:from-teal-900/30 dark:to-blue-900/30 border border-teal-200/50 dark:border-teal-700/50">
+              <Sparkles className="w-4 h-4 text-teal-600 dark:text-teal-400" />
+              <span className="text-sm font-medium text-teal-700 dark:text-teal-300">Available for Projects</span>
+            </div>
+
+            <div className="space-y-6">
+              <h1 className="text-6xl lg:text-8xl font-bold text-slate-800 dark:text-white leading-tight">
+                Hi, I'm{" "}
+                <span className="bg-gradient-to-r from-teal-600 via-blue-600 to-teal-600 dark:from-teal-400 dark:via-blue-400 dark:to-teal-400 bg-clip-text text-transparent animate-gradient bg-300% bg-size-300">
+                  Janagabalan
+                </span>
               </h1>
-              <h2 className="text-xl lg:text-2xl text-slate-600 dark:text-slate-300 font-medium">
-                IoT Enthusiast & ECE Student
-              </h2>
-              <p className="text-lg text-slate-600 dark:text-slate-400 max-w-lg leading-relaxed">
-                Building Smart Solutions for a Smarter World through innovative IoT technologies and embedded systems.
-              </p>
+              
+              <div className="space-y-3">
+                <h2 className="text-2xl lg:text-3xl text-slate-700 dark:text-slate-200 font-semibold">
+                  IoT Enthusiast & ECE Student
+                </h2>
+                <p className="text-lg lg:text-xl text-slate-600 dark:text-slate-400 max-w-xl leading-relaxed">
+                  Building <span className="font-semibold text-teal-600 dark:text-teal-400">Smart Solutions</span> for a{" "}
+                  <span className="font-semibold text-blue-600 dark:text-blue-400">Smarter World</span> through innovative IoT technologies and embedded systems.
+                </p>
+              </div>
+            </div>
+
+            {/* Stats */}
+            <div className="flex flex-wrap gap-6 py-4">
+              <div className="flex items-center gap-2">
+                <div className="w-3 h-3 bg-gradient-to-r from-green-400 to-green-500 rounded-full animate-pulse"></div>
+                <span className="text-sm text-slate-600 dark:text-slate-400">5+ IoT Projects</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-3 h-3 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full animate-pulse delay-300"></div>
+                <span className="text-sm text-slate-600 dark:text-slate-400">Arduino Expert</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-3 h-3 bg-gradient-to-r from-purple-400 to-purple-500 rounded-full animate-pulse delay-500"></div>
+                <span className="text-sm text-slate-600 dark:text-slate-400">Cloud Integration</span>
+              </div>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 
                 onClick={scrollToContact}
-                className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-3 text-lg"
+                className="bg-gradient-to-r from-teal-600 to-blue-600 hover:from-teal-700 hover:to-blue-700 text-white px-8 py-6 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
               >
                 Let's Connect
-                <ArrowDown className="ml-2 h-5 w-5" />
+                <ArrowDown className="ml-2 h-5 w-5 animate-bounce" />
               </Button>
               <Button 
                 variant="outline" 
-                className="border-teal-600 text-teal-600 hover:bg-teal-50 dark:hover:bg-teal-900/20 px-8 py-3 text-lg"
+                className="border-2 border-teal-600/20 bg-white/80 dark:bg-slate-800/80 text-teal-700 dark:text-teal-300 hover:bg-gradient-to-r hover:from-teal-50 hover:to-blue-50 dark:hover:from-teal-900/20 dark:hover:to-blue-900/20 px-8 py-6 text-lg font-semibold backdrop-blur-sm transition-all duration-300 transform hover:scale-105"
               >
                 Download Resume
                 <Download className="ml-2 h-5 w-5" />
@@ -47,26 +83,37 @@ const Hero = () => {
           {/* Profile Image */}
           <div className="flex justify-center lg:justify-end">
             <div className="relative">
-              <div className="w-80 h-80 lg:w-96 lg:h-96 rounded-full bg-gradient-to-br from-teal-400 to-blue-500 p-1 animate-scale-in">
-                <div className="w-full h-full rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
-                  <div className="w-72 h-72 lg:w-88 lg:h-88 rounded-full bg-gradient-to-br from-teal-100 to-blue-100 dark:from-teal-900/30 dark:to-blue-900/30 flex items-center justify-center">
-                    <div className="text-6xl lg:text-8xl text-teal-600 dark:text-teal-400 font-bold">
+              {/* Main Profile Circle */}
+              <div className="w-80 h-80 lg:w-96 lg:h-96 rounded-full bg-gradient-to-br from-teal-400 via-blue-500 to-purple-600 p-1 animate-scale-in shadow-2xl">
+                <div className="w-full h-full rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center backdrop-blur-sm">
+                  <div className="w-72 h-72 lg:w-88 lg:h-88 rounded-full bg-gradient-to-br from-teal-100 via-blue-100 to-purple-100 dark:from-teal-900/30 dark:via-blue-900/30 dark:to-purple-900/30 flex items-center justify-center shadow-inner">
+                    <div className="text-6xl lg:text-8xl bg-gradient-to-r from-teal-600 to-blue-600 dark:from-teal-400 dark:to-blue-400 bg-clip-text text-transparent font-bold">
                       JR
                     </div>
                   </div>
                 </div>
               </div>
               
-              {/* Floating Tech Icons */}
-              <div className="absolute -top-4 -right-4 w-16 h-16 bg-white dark:bg-slate-800 rounded-full shadow-lg flex items-center justify-center animate-bounce">
-                <span className="text-2xl">🤖</span>
+              {/* Floating Tech Icons with enhanced styling */}
+              <div className="absolute -top-6 -right-6 w-20 h-20 bg-gradient-to-br from-white to-slate-50 dark:from-slate-700 dark:to-slate-800 rounded-2xl shadow-lg hover:shadow-xl flex items-center justify-center animate-bounce border border-slate-200 dark:border-slate-600 transition-all duration-300 hover:scale-110">
+                <Code className="w-8 h-8 text-teal-600 dark:text-teal-400" />
               </div>
-              <div className="absolute top-20 -left-6 w-12 h-12 bg-white dark:bg-slate-800 rounded-full shadow-lg flex items-center justify-center animate-pulse">
+              
+              <div className="absolute top-16 -left-8 w-16 h-16 bg-gradient-to-br from-white to-slate-50 dark:from-slate-700 dark:to-slate-800 rounded-xl shadow-lg hover:shadow-xl flex items-center justify-center animate-pulse border border-slate-200 dark:border-slate-600 transition-all duration-300 hover:scale-110">
+                <Zap className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+              </div>
+              
+              <div className="absolute bottom-8 -right-10 w-18 h-18 bg-gradient-to-br from-white to-slate-50 dark:from-slate-700 dark:to-slate-800 rounded-2xl shadow-lg hover:shadow-xl flex items-center justify-center animate-bounce delay-300 border border-slate-200 dark:border-slate-600 transition-all duration-300 hover:scale-110">
+                <span className="text-2xl">🌐</span>
+              </div>
+
+              <div className="absolute bottom-16 left-4 w-14 h-14 bg-gradient-to-br from-white to-slate-50 dark:from-slate-700 dark:to-slate-800 rounded-xl shadow-lg hover:shadow-xl flex items-center justify-center animate-pulse delay-700 border border-slate-200 dark:border-slate-600 transition-all duration-300 hover:scale-110">
                 <span className="text-xl">⚡</span>
               </div>
-              <div className="absolute bottom-10 -right-8 w-14 h-14 bg-white dark:bg-slate-800 rounded-full shadow-lg flex items-center justify-center animate-bounce delay-300">
-                <span className="text-xl">🌐</span>
-              </div>
+
+              {/* Orbital rings */}
+              <div className="absolute inset-0 w-80 h-80 lg:w-96 lg:h-96 rounded-full border-2 border-teal-200/30 dark:border-teal-700/30 animate-spin" style={{ animationDuration: '20s' }}></div>
+              <div className="absolute inset-4 w-72 h-72 lg:w-88 lg:h-88 rounded-full border border-blue-200/30 dark:border-blue-700/30 animate-spin" style={{ animationDuration: '15s', animationDirection: 'reverse' }}></div>
             </div>
           </div>
         </div>
