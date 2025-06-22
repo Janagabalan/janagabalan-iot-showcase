@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { ExternalLink, Github, Filter } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -51,15 +50,6 @@ const Portfolio = () => {
       category: "minor",
       tech: ["ESP8266", "DHT22", "Blynk IoT", "Data Analytics"],
       status: "Completed"
-    },
-    {
-      id: 6,
-      title: "Smart Irrigation System",
-      description: "Automated plant watering system with soil moisture sensing and remote control capabilities.",
-      image: "🌱",
-      category: "minor",
-      tech: ["Arduino", "Soil Moisture Sensor", "Water Pump", "Mobile Control"],
-      status: "In Progress"
     }
   ];
 
