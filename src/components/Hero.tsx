@@ -8,6 +8,16 @@ const Hero = () => {
     element?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const downloadResume = () => {
+    const resumeUrl = "https://i.postimg.cc/qMFVtjfD/janagabalan-resume.jpg";
+    const link = document.createElement('a');
+    link.href = resumeUrl;
+    link.download = 'Janagabalan_Resume.jpg';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center pt-20 px-4 relative overflow-hidden">
       {/* Background Elements */}
@@ -71,6 +81,7 @@ const Hero = () => {
                 <ArrowDown className="ml-2 h-5 w-5 animate-bounce" />
               </Button>
               <Button 
+                onClick={downloadResume}
                 variant="outline" 
                 className="border-2 border-teal-600/20 bg-white/80 dark:bg-slate-800/80 text-teal-700 dark:text-teal-300 hover:bg-gradient-to-r hover:from-teal-50 hover:to-blue-50 dark:hover:from-teal-900/20 dark:hover:to-blue-900/20 px-8 py-6 text-lg font-semibold backdrop-blur-sm transition-all duration-300 transform hover:scale-105"
               >
