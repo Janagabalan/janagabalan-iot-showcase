@@ -1,5 +1,6 @@
+
 import { useState } from "react";
-import { ExternalLink, Github, Filter } from "lucide-react";
+import { Filter } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Portfolio = () => {
@@ -139,17 +140,6 @@ const Portfolio = () => {
                       </span>
                     ))}
                   </div>
-                </div>
-
-                {/* Action Buttons */}
-                <div className="flex space-x-3">
-                  <Button size="sm" className="flex-1 bg-teal-600 hover:bg-teal-700 text-white">
-                    <ExternalLink className="h-4 w-4 mr-2" />
-                    View Details
-                  </Button>
-                  <Button size="sm" variant="outline" className="border-teal-600 text-teal-600 hover:bg-teal-50 dark:hover:bg-teal-900/20">
-                    <Github className="h-4 w-4" />
-                  </Button>
                 </div>
               </div>
             </div>
