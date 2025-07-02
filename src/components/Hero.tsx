@@ -1,4 +1,3 @@
-
 import { ArrowDown, Download, Sparkles, Code, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -8,14 +7,34 @@ const Hero = () => {
     element?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const downloadResume = () => {
-    const resumeUrl = "https://i.postimg.cc/qMFVtjfD/janagabalan-resume.jpg";
-    const link = document.createElement('a');
-    link.href = resumeUrl;
-    link.download = 'Janagabalan_Resume.jpg';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+  const downloadResume = async () => {
+    try {
+      const resumeUrl = "https://i.postimg.cc/qMFVtjfD/janagabalan-resume.jpg";
+      
+      // Fetch the image
+      const response = await fetch(resumeUrl);
+      const blob = await response.blob();
+      
+      // Create blob URL
+      const blobUrl = window.URL.createObjectURL(blob);
+      
+      // Create download link
+      const link = document.createElement('a');
+      link.href = blobUrl;
+      link.download = 'Janagabalan_Resume.jpg';
+      
+      // Trigger download
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      
+      // Clean up blob URL
+      window.URL.revokeObjectURL(blobUrl);
+    } catch (error) {
+      console.error('Download failed:', error);
+      // Fallback: open in new tab
+      window.open("https://i.postimg.cc/qMFVtjfD/janagabalan-resume.jpg", '_blank');
+    }
   };
 
   return (
