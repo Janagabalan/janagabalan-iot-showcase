@@ -16,7 +16,8 @@ const FloatingContact = () => {
   const handleQuickMessage = (message: string) => {
     const emailSubject = "Project Inquiry";
     const emailBody = encodeURIComponent(message);
-    window.open(`mailto:janagabalanr@gmail.com?subject=${emailSubject}&body=${emailBody}`);
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=janagabalanr@gmail.com&su=${emailSubject}&body=${emailBody}`;
+    window.open(gmailUrl, '_blank');
     setIsOpen(false);
   };
 
