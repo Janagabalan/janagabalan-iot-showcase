@@ -59,12 +59,11 @@ const Header = ({ darkMode, toggleDarkMode }: HeaderProps) => {
               </button>
             ))}
             
-            {/* Menu Dropdown */}
+            {/* Desktop Hamburger Menu */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="outline" className="ml-4">
-                  Menu
-                  <ChevronDown className="ml-2 h-4 w-4" />
+                <Button variant="ghost" size="icon" className="ml-4">
+                  <Menu className="h-5 w-5" />
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-48">
@@ -88,12 +87,11 @@ const Header = ({ darkMode, toggleDarkMode }: HeaderProps) => {
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center space-x-2">
-            {/* Mobile Menu Dropdown */}
+            {/* Mobile Additional Menu Dropdown */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="outline" size="sm">
-                  Menu
-                  <ChevronDown className="ml-1 h-3 w-3" />
+                <Button variant="ghost" size="icon">
+                  <Menu className="h-4 w-4" />
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-48">
@@ -122,7 +120,7 @@ const Header = ({ darkMode, toggleDarkMode }: HeaderProps) => {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Navigation Menu */}
         {isMenuOpen && (
           <nav className="md:hidden mt-4 pb-4 border-t border-slate-200 dark:border-slate-700">
             <div className="flex flex-col space-y-3 pt-4">
