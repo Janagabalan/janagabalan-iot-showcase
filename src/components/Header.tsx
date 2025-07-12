@@ -1,7 +1,13 @@
 
 import { useState } from "react";
-import { Menu, X, Sun, Moon } from "lucide-react";
+import { Menu, X, Sun, Moon, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 interface HeaderProps {
   darkMode: boolean;
@@ -26,6 +32,13 @@ const Header = ({ darkMode, toggleDarkMode }: HeaderProps) => {
     { label: "Contact", id: "contact" },
   ];
 
+  const menuOptions = [
+    { label: "Download Resume", action: () => window.open('/resume.pdf', '_blank') },
+    { label: "LinkedIn Profile", action: () => window.open('https://linkedin.com/in/janagabalan', '_blank') },
+    { label: "GitHub Profile", action: () => window.open('https://github.com/janagabalan', '_blank') },
+    { label: "Email Me", action: () => window.open('mailto:janagabalanr@gmail.com', '_blank') },
+  ];
+
   return (
     <header className="fixed top-0 w-full bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-700 z-50 transition-all duration-300">
       <div className="container mx-auto px-4 py-4">
@@ -45,6 +58,24 @@ const Header = ({ darkMode, toggleDarkMode }: HeaderProps) => {
                 {item.label}
               </button>
             ))}
+            
+            {/* Menu Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="outline" className="ml-4">
+                  Menu
+                  <ChevronDown className="ml-2 h-4 w-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-48">
+                {menuOptions.map((option, index) => (
+                  <DropdownMenuItem key={index} onClick={option.action}>
+                    {option.label}
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+
             <Button
               variant="ghost"
               size="icon"
@@ -57,6 +88,23 @@ const Header = ({ darkMode, toggleDarkMode }: HeaderProps) => {
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center space-x-2">
+            {/* Mobile Menu Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="outline" size="sm">
+                  Menu
+                  <ChevronDown className="ml-1 h-3 w-3" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-48">
+                {menuOptions.map((option, index) => (
+                  <DropdownMenuItem key={index} onClick={option.action}>
+                    {option.label}
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+
             <Button
               variant="ghost"
               size="icon"
