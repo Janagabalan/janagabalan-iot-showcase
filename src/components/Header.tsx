@@ -32,11 +32,32 @@ const Header = ({ darkMode, toggleDarkMode }: HeaderProps) => {
     { label: "Contact", id: "contact" },
   ];
 
+  const handleEmailClick = () => {
+    console.log('Email click triggered');
+    const emailUrl = 'mailto:janagabalanr@gmail.com';
+    window.location.href = emailUrl;
+  };
+
+  const handleLinkedInClick = () => {
+    console.log('LinkedIn click triggered');
+    window.open('https://linkedin.com/in/janagabalan', '_blank', 'noopener,noreferrer');
+  };
+
+  const handleGitHubClick = () => {
+    console.log('GitHub click triggered');
+    window.open('https://github.com/janagabalan', '_blank', 'noopener,noreferrer');
+  };
+
+  const handleResumeClick = () => {
+    console.log('Resume click triggered');
+    window.open('/resume.pdf', '_blank', 'noopener,noreferrer');
+  };
+
   const menuOptions = [
-    { label: "Download Resume", action: () => window.open('/resume.pdf', '_blank') },
-    { label: "LinkedIn Profile", action: () => window.open('https://linkedin.com/in/janagabalan', '_blank') },
-    { label: "GitHub Profile", action: () => window.open('https://github.com/janagabalan', '_blank') },
-    { label: "Email Me", action: () => window.open('mailto:janagabalanr@gmail.com', '_blank') },
+    { label: "Download Resume", action: handleResumeClick },
+    { label: "LinkedIn Profile", action: handleLinkedInClick },
+    { label: "GitHub Profile", action: handleGitHubClick },
+    { label: "Email Me", action: handleEmailClick },
   ];
 
   return (
