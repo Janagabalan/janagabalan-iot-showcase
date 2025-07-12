@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Menu, X, Sun, Moon, ChevronDown } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -80,7 +80,7 @@ const Header = ({ darkMode, toggleDarkMode }: HeaderProps) => {
               </button>
             ))}
             
-            {/* Desktop Hamburger Menu */}
+            {/* Desktop Additional Options Menu */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" size="icon" className="ml-4">
@@ -106,12 +106,12 @@ const Header = ({ darkMode, toggleDarkMode }: HeaderProps) => {
             </Button>
           </nav>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Controls */}
           <div className="md:hidden flex items-center space-x-2">
             {/* Mobile Additional Menu Dropdown */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="icon">
+                <Button variant="ghost" size="sm">
                   <Menu className="h-4 w-4" />
                 </Button>
               </DropdownMenuTrigger>
@@ -131,32 +131,39 @@ const Header = ({ darkMode, toggleDarkMode }: HeaderProps) => {
             >
               {darkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </Button>
+
+            {/* Mobile Navigation Menu Button */}
             <Button
               variant="ghost"
               size="icon"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="relative"
             >
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              <div className="flex flex-col items-center justify-center w-6 h-6">
+                <span className={`block h-0.5 w-6 bg-current transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></span>
+                <span className={`block h-0.5 w-6 bg-current transition-all duration-300 mt-1 ${isMenuOpen ? 'opacity-0' : ''}`}></span>
+                <span className={`block h-0.5 w-6 bg-current transition-all duration-300 mt-1 ${isMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></span>
+              </div>
             </Button>
           </div>
         </div>
 
         {/* Mobile Navigation Menu */}
-        {isMenuOpen && (
-          <nav className="md:hidden mt-4 pb-4 border-t border-slate-200 dark:border-slate-700">
-            <div className="flex flex-col space-y-3 pt-4">
+        <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+          <nav className="border-t border-slate-200 dark:border-slate-700 mt-4">
+            <div className="flex flex-col space-y-1 pt-4 pb-4">
               {navItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="text-left text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-teal-400 transition-colors duration-200 font-medium py-2"
+                  className="text-left text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-teal-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-200 font-medium py-3 px-4 rounded-md"
                 >
                   {item.label}
                 </button>
               ))}
             </div>
           </nav>
-        )}
+        </div>
       </div>
     </header>
   );
