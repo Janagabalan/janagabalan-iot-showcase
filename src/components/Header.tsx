@@ -1,13 +1,7 @@
 
 import { useState } from "react";
-import { Menu, X, Sun, Moon } from "lucide-react";
+import { Sun, Moon } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 
 interface HeaderProps {
   darkMode: boolean;
@@ -32,34 +26,6 @@ const Header = ({ darkMode, toggleDarkMode }: HeaderProps) => {
     { label: "Contact", id: "contact" },
   ];
 
-  const handleEmailClick = () => {
-    console.log('Email click triggered');
-    const emailUrl = 'mailto:janagabalanr@gmail.com';
-    window.location.href = emailUrl;
-  };
-
-  const handleLinkedInClick = () => {
-    console.log('LinkedIn click triggered');
-    window.open('https://linkedin.com/in/janagabalan', '_blank', 'noopener,noreferrer');
-  };
-
-  const handleGitHubClick = () => {
-    console.log('GitHub click triggered');
-    window.open('https://github.com/janagabalan', '_blank', 'noopener,noreferrer');
-  };
-
-  const handleResumeClick = () => {
-    console.log('Resume click triggered');
-    window.open('/resume.pdf', '_blank', 'noopener,noreferrer');
-  };
-
-  const menuOptions = [
-    { label: "Download Resume", action: handleResumeClick },
-    { label: "LinkedIn Profile", action: handleLinkedInClick },
-    { label: "GitHub Profile", action: handleGitHubClick },
-    { label: "Email Me", action: handleEmailClick },
-  ];
-
   return (
     <header className="fixed top-0 w-full bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-700 z-50 transition-all duration-300">
       <div className="container mx-auto px-4 py-4">
@@ -79,22 +45,6 @@ const Header = ({ darkMode, toggleDarkMode }: HeaderProps) => {
                 {item.label}
               </button>
             ))}
-            
-            {/* Desktop Additional Options Menu */}
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="icon" className="ml-4">
-                  <Menu className="h-5 w-5" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-48">
-                {menuOptions.map((option, index) => (
-                  <DropdownMenuItem key={index} onClick={option.action}>
-                    {option.label}
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
 
             <Button
               variant="ghost"
@@ -108,22 +58,6 @@ const Header = ({ darkMode, toggleDarkMode }: HeaderProps) => {
 
           {/* Mobile Menu Controls */}
           <div className="md:hidden flex items-center space-x-2">
-            {/* Mobile Additional Menu Dropdown */}
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="sm">
-                  <Menu className="h-4 w-4" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-48">
-                {menuOptions.map((option, index) => (
-                  <DropdownMenuItem key={index} onClick={option.action}>
-                    {option.label}
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
-
             <Button
               variant="ghost"
               size="icon"
