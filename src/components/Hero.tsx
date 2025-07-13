@@ -1,3 +1,4 @@
+
 import { ArrowDown, Download, Sparkles, Code, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -70,7 +71,7 @@ const Hero = () => {
               </div>
             </div>
 
-            {/* Enhanced Stats */}
+            {/* Enhanced Stats - Reordered to put Cloud Integration after Arduino Expert */}
             <div className="flex flex-wrap justify-center lg:justify-start gap-3 sm:gap-4 py-2 sm:py-4">
               <div className="flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm border border-slate-200/50 dark:border-slate-700/50">
                 <div className="w-2 sm:w-3 h-2 sm:h-3 bg-gradient-to-r from-green-400 to-green-500 rounded-full animate-pulse"></div>
