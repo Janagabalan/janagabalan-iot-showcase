@@ -22,31 +22,31 @@ const FloatingContact = () => {
   };
 
   return (
-    <div className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-50">
+    <div className="fixed bottom-4 right-4 z-50">
       {/* Quick Messages Panel */}
       {isOpen && (
-        <div className="mb-4 bg-white dark:bg-slate-800 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 p-4 w-72 sm:w-80 animate-fade-in">
+        <div className="mb-4 bg-white dark:bg-slate-800 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 p-4 w-80 sm:w-96 animate-fade-in backdrop-blur-lg">
           <div className="flex items-center justify-between mb-4">
-            <h3 className="font-semibold text-slate-800 dark:text-white text-sm sm:text-base">Quick Contact</h3>
+            <h3 className="font-semibold text-slate-800 dark:text-white text-base">Quick Contact</h3>
             <Button
               variant="ghost"
               size="icon"
               onClick={() => setIsOpen(false)}
-              className="h-6 w-6"
+              className="h-8 w-8 rounded-full"
             >
               <X className="h-4 w-4" />
             </Button>
           </div>
           
-          <div className="space-y-2">
+          <div className="space-y-3">
             {quickMessages.map((message, index) => (
               <button
                 key={index}
                 onClick={() => handleQuickMessage(message)}
-                className="w-full text-left p-3 rounded-lg bg-slate-50 dark:bg-slate-700 hover:bg-teal-50 dark:hover:bg-teal-900/20 hover:border-teal-200 dark:hover:border-teal-700 border border-transparent transition-all duration-200 text-xs sm:text-sm"
+                className="w-full text-left p-4 rounded-xl bg-slate-50 dark:bg-slate-700 hover:bg-teal-50 dark:hover:bg-teal-900/20 hover:border-teal-200 dark:hover:border-teal-700 border border-transparent transition-all duration-200 text-sm touch-manipulation"
               >
-                <div className="flex items-start space-x-2">
-                  <Send className="h-3 sm:h-4 w-3 sm:w-4 text-teal-600 dark:text-teal-400 flex-shrink-0 mt-0.5" />
+                <div className="flex items-start space-x-3">
+                  <Send className="h-4 w-4 text-teal-600 dark:text-teal-400 flex-shrink-0 mt-0.5" />
                   <span className="text-slate-700 dark:text-slate-300 leading-relaxed">{message}</span>
                 </div>
               </button>
@@ -56,7 +56,7 @@ const FloatingContact = () => {
           <div className="mt-4 pt-4 border-t border-slate-200 dark:border-slate-700">
             <button
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="w-full text-center p-2 text-teal-600 dark:text-teal-400 hover:bg-teal-50 dark:hover:bg-teal-900/20 rounded-lg transition-colors duration-200 text-xs sm:text-sm font-medium"
+              className="w-full text-center p-3 text-teal-600 dark:text-teal-400 hover:bg-teal-50 dark:hover:bg-teal-900/20 rounded-xl transition-colors duration-200 text-sm font-medium touch-manipulation"
             >
               Or use the contact form
             </button>
@@ -67,12 +67,12 @@ const FloatingContact = () => {
       {/* Floating Button */}
       <Button
         onClick={() => setIsOpen(!isOpen)}
-        className="h-12 sm:h-14 w-12 sm:w-14 rounded-full bg-teal-600 hover:bg-teal-700 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
+        className="h-14 w-14 rounded-full bg-teal-600 hover:bg-teal-700 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 touch-manipulation"
       >
         {isOpen ? (
-          <X className="h-5 sm:h-6 w-5 sm:w-6 text-white" />
+          <X className="h-6 w-6 text-white" />
         ) : (
-          <MessageCircle className="h-5 sm:h-6 w-5 sm:w-6 text-white" />
+          <MessageCircle className="h-6 w-6 text-white" />
         )}
       </Button>
     </div>
