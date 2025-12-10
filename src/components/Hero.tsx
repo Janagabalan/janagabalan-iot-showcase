@@ -1,7 +1,7 @@
 
 import { ArrowDown, Download, Sparkles, Code, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/hero-image.jpg";
+import heroImage from "@/assets/hero-image.png";
 
 const Hero = () => {
   const scrollToContact = () => {
@@ -117,7 +117,7 @@ const Hero = () => {
                   <img 
                     src={heroImage} 
                     alt="Janagabalan" 
-                    className="w-full h-full object-cover object-[center_15%] rounded-full scale-125"
+                    className="w-full h-full object-cover rounded-full"
                   />
                 </div>
               </div>
