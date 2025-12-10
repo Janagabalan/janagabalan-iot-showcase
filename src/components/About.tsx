@@ -12,7 +12,7 @@ const About = () => {
     },
     {
       degree: "Secondary Education (4th - 12th)",
-      institution: "Sathya Sai Public School CBSE",
+      institution: "Sathya Saai Public School CBSE",
       location: "Pasar",
       period: "Completed",
       status: "CBSE Board"
