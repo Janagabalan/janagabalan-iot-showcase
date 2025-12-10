@@ -1,6 +1,7 @@
 
 import { ArrowDown, Download, Sparkles, Code, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import heroImage from "@/assets/hero-image.png";
 
 const Hero = () => {
   const scrollToContact = () => {
@@ -112,12 +113,12 @@ const Hero = () => {
             <div className="relative">
               {/* Main Profile Circle with enhanced gradient */}
               <div className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full bg-gradient-to-br from-teal-400 via-blue-500 to-purple-600 p-1 animate-scale-in shadow-2xl">
-                <div className="w-full h-full rounded-full bg-gradient-to-br from-slate-50 to-white dark:from-slate-800 dark:to-slate-700 flex items-center justify-center backdrop-blur-sm">
-                  <div className="w-56 h-56 sm:w-72 sm:h-72 lg:w-88 lg:h-88 rounded-full bg-gradient-to-br from-teal-50 via-blue-50 to-purple-50 dark:from-teal-900/20 dark:via-blue-900/20 dark:to-purple-900/20 flex items-center justify-center shadow-inner border border-white/50 dark:border-slate-600/50">
-                    <div className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl bg-gradient-to-r from-teal-600 to-blue-600 dark:from-teal-400 dark:to-blue-400 bg-clip-text text-transparent font-bold">
-                      JR
-                    </div>
-                  </div>
+                <div className="w-full h-full rounded-full bg-gradient-to-br from-slate-50 to-white dark:from-slate-800 dark:to-slate-700 flex items-center justify-center backdrop-blur-sm overflow-hidden">
+                  <img 
+                    src={heroImage} 
+                    alt="Janagabalan" 
+                    className="w-full h-full object-cover rounded-full"
+                  />
                 </div>
               </div>
               
