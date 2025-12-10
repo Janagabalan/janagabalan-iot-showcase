@@ -51,6 +51,15 @@ const Portfolio = () => {
       category: "minor",
       tech: ["ESP8266", "DHT22", "Blynk IoT", "Data Analytics"],
       status: "Completed"
+    },
+    {
+      id: 6,
+      title: "IoT Framework for Plant Stress & Health",
+      description: "Real-time monitoring of plant health with a health score displayed on OLED display and Blynk app for remote tracking.",
+      image: "🌱",
+      category: "major",
+      tech: ["ESP8266", "Sensors", "OLED Display", "Blynk IoT"],
+      status: "Completed"
     }
   ];
 
