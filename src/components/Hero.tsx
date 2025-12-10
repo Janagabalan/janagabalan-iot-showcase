@@ -117,7 +117,7 @@ const Hero = () => {
                   <img 
                     src={heroImage} 
                     alt="Janagabalan" 
-                    className="w-full h-full object-cover rounded-full"
+                    className="w-full h-full object-cover object-top rounded-full scale-125"
                   />
                 </div>
               </div>
