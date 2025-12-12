@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
@@ -8,6 +7,7 @@ import Services from "@/components/Services";
 import Portfolio from "@/components/Portfolio";
 import Contact from "@/components/Contact";
 import FloatingContact from "@/components/FloatingContact";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -27,6 +27,7 @@ const Index = () => {
         <Services />
         <Portfolio />
         <Contact />
+        <Footer />
         <FloatingContact />
       </div>
     </div>
