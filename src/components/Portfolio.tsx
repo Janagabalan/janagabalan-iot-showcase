@@ -18,7 +18,8 @@ const Portfolio = () => {
       category: "major",
       tech: ["ESP8266", "Google Home", "Gemini AI", "Blynk IoT"],
       status: "Completed",
-      color: "from-teal-500 to-cyan-600"
+      color: "from-teal-500 to-cyan-600",
+      link: "https://www.linkedin.com/posts/janagabalan-r-a72499281_iot-smarthome-googleassistant-activity-7341707262932963329-ULRI?utm_source=share&utm_medium=member_desktop&rcm=ACoAAESX27YBeL2AvNxOclljqpUEbOngtAo1UOU"
     },
     {
       id: 2,
@@ -68,7 +69,8 @@ const Portfolio = () => {
       category: "major",
       tech: ["ESP8266", "Sensors", "OLED Display", "Blynk IoT"],
       status: "Completed",
-      color: "from-lime-500 to-green-600"
+      color: "from-lime-500 to-green-600",
+      link: "https://www.linkedin.com/posts/janagabalan-r-a72499281_iot-framework-for-decoding-plant-stress-activity-7396017845630877696-hS4o?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAESX27YBeL2AvNxOclljqpUEbOngtAo1UOU"
     }
   ];
 
@@ -101,7 +103,7 @@ const Portfolio = () => {
             My Work
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-800 dark:text-white mb-4">
-            My <span className="bg-gradient-to-r from-teal-600 to-blue-600 bg-clip-text text-transparent">Portfolio</span>
+            My <span className="bg-gradient-to-r from-teal-600 to-blue-600 bg-clip-text text-transparent">Projects</span>
           </h2>
           <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto px-4">
             Showcasing innovative IoT projects and smart solutions I've developed
@@ -138,68 +140,94 @@ const Portfolio = () => {
           ref={projectsRef}
           className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
         >
-          {filteredProjects.map((project, index) => (
-            <div 
-              key={project.id} 
-              className={`group bg-white dark:bg-slate-800/80 rounded-3xl shadow-xl border border-slate-200/50 dark:border-slate-700/50 overflow-hidden backdrop-blur-sm hover:shadow-2xl hover:-translate-y-3 transition-all duration-500 ${
-                projectsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}
-              style={{ transitionDelay: `${index * 100}ms` }}
-            >
-              {/* Project Image/Icon */}
-              <div className={`h-40 sm:h-48 bg-gradient-to-br ${project.color} flex items-center justify-center relative overflow-hidden`}>
-                <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-300" />
-                <div className="text-5xl sm:text-6xl group-hover:scale-125 transition-transform duration-500 relative z-10">
-                  {project.image}
+          {filteredProjects.map((project, index) => {
+            const CardWrapper = ({ children }: { children: React.ReactNode }) => 
+              project.link ? (
+                <a 
+                  href={project.link} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className={`group block bg-white dark:bg-slate-800/80 rounded-3xl shadow-xl border border-slate-200/50 dark:border-slate-700/50 overflow-hidden backdrop-blur-sm hover:shadow-2xl hover:-translate-y-3 transition-all duration-500 cursor-pointer ${
+                    projectsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                  }`}
+                  style={{ transitionDelay: `${index * 100}ms` }}
+                >
+                  {children}
+                </a>
+              ) : (
+                <div 
+                  className={`group bg-white dark:bg-slate-800/80 rounded-3xl shadow-xl border border-slate-200/50 dark:border-slate-700/50 overflow-hidden backdrop-blur-sm hover:shadow-2xl hover:-translate-y-3 transition-all duration-500 ${
+                    projectsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                  }`}
+                  style={{ transitionDelay: `${index * 100}ms` }}
+                >
+                  {children}
                 </div>
-                {/* Floating particles */}
-                <div className="absolute top-4 right-4 w-3 h-3 bg-white/30 rounded-full animate-float" />
-                <div className="absolute bottom-8 left-8 w-2 h-2 bg-white/20 rounded-full animate-float" style={{ animationDelay: '1s' }} />
-              </div>
+              );
 
-              {/* Project Content */}
-              <div className="p-5 sm:p-6">
-                <div className="flex items-center justify-between mb-3">
-                  <span className={`px-3 py-1 rounded-full text-xs font-bold ${
-                    project.status === "Completed" 
-                      ? "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400"
-                      : "bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400"
-                  }`}>
-                    {project.status}
-                  </span>
-                  <span className={`px-3 py-1 rounded-full text-xs font-bold ${
-                    project.category === "major"
-                      ? "bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-400"
-                      : "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400"
-                  }`}>
-                    {project.category === "major" ? "Major" : "Minor"}
-                  </span>
+            return (
+              <CardWrapper key={project.id}>
+                {/* Project Image/Icon */}
+                <div className={`h-40 sm:h-48 bg-gradient-to-br ${project.color} flex items-center justify-center relative overflow-hidden`}>
+                  <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-300" />
+                  <div className="text-5xl sm:text-6xl group-hover:scale-125 transition-transform duration-500 relative z-10">
+                    {project.image}
+                  </div>
+                  {/* Floating particles */}
+                  <div className="absolute top-4 right-4 w-3 h-3 bg-white/30 rounded-full animate-float" />
+                  <div className="absolute bottom-8 left-8 w-2 h-2 bg-white/20 rounded-full animate-float" style={{ animationDelay: '1s' }} />
+                  {project.link && (
+                    <div className="absolute top-4 left-4 px-2 py-1 bg-white/20 backdrop-blur-sm rounded-full flex items-center gap-1 text-white text-xs font-medium">
+                      <ExternalLink className="w-3 h-3" />
+                      View
+                    </div>
+                  )}
                 </div>
 
-                <h3 className="text-lg sm:text-xl font-bold text-slate-800 dark:text-white mb-3 line-clamp-2 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors duration-300">
-                  {project.title}
-                </h3>
-                <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4 line-clamp-2">
-                  {project.description}
-                </p>
+                {/* Project Content */}
+                <div className="p-5 sm:p-6">
+                  <div className="flex items-center justify-between mb-3">
+                    <span className={`px-3 py-1 rounded-full text-xs font-bold ${
+                      project.status === "Completed" 
+                        ? "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400"
+                        : "bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400"
+                    }`}>
+                      {project.status}
+                    </span>
+                    <span className={`px-3 py-1 rounded-full text-xs font-bold ${
+                      project.category === "major"
+                        ? "bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-400"
+                        : "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400"
+                    }`}>
+                      {project.category === "major" ? "Major" : "Minor"}
+                    </span>
+                  </div>
 
-                {/* Tech Stack */}
-                <div>
-                  <h4 className="text-xs font-bold text-slate-500 dark:text-slate-400 mb-2 uppercase tracking-wider">Technologies</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tech.map((tech, techIndex) => (
-                      <span 
-                        key={techIndex} 
-                        className="px-2 py-1 bg-slate-100 dark:bg-slate-700/50 text-slate-600 dark:text-slate-300 text-xs rounded-lg hover:bg-teal-100 dark:hover:bg-teal-900/30 hover:text-teal-700 dark:hover:text-teal-300 transition-colors duration-300"
-                      >
-                        {tech}
-                      </span>
-                    ))}
+                  <h3 className="text-lg sm:text-xl font-bold text-slate-800 dark:text-white mb-3 line-clamp-2 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors duration-300">
+                    {project.title}
+                  </h3>
+                  <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4 line-clamp-2">
+                    {project.description}
+                  </p>
+
+                  {/* Tech Stack */}
+                  <div>
+                    <h4 className="text-xs font-bold text-slate-500 dark:text-slate-400 mb-2 uppercase tracking-wider">Technologies</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {project.tech.map((tech, techIndex) => (
+                        <span 
+                          key={techIndex} 
+                          className="px-2 py-1 bg-slate-100 dark:bg-slate-700/50 text-slate-600 dark:text-slate-300 text-xs rounded-lg hover:bg-teal-100 dark:hover:bg-teal-900/30 hover:text-teal-700 dark:hover:text-teal-300 transition-colors duration-300"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          ))}
+              </CardWrapper>
+            );
+          })}
         </div>
 
         {/* Portfolio CTA */}
