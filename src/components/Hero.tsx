@@ -9,28 +9,8 @@ const Hero = () => {
     element?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const downloadResume = async () => {
-    try {
-      const resumeUrl = "https://i.postimg.cc/qMFVtjfD/janagabalan-resume.jpg";
-      
-      const response = await fetch(resumeUrl);
-      const blob = await response.blob();
-      
-      const blobUrl = window.URL.createObjectURL(blob);
-      
-      const link = document.createElement('a');
-      link.href = blobUrl;
-      link.download = 'Janagabalan_Resume.jpg';
-      
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      
-      window.URL.revokeObjectURL(blobUrl);
-    } catch (error) {
-      console.error('Download failed:', error);
-      window.open("https://i.postimg.cc/qMFVtjfD/janagabalan-resume.jpg", '_blank');
-    }
+  const viewResume = () => {
+    window.open("https://i.postimg.cc/qMFVtjfD/janagabalan-resume.jpg", '_blank');
   };
 
   return (
@@ -98,11 +78,11 @@ const Hero = () => {
                 <ArrowDown className="ml-2 h-4 sm:h-5 w-4 sm:w-5 animate-bounce" />
               </Button>
               <Button 
-                onClick={downloadResume}
+                onClick={viewResume}
                 variant="outline" 
                 className="border-2 border-teal-600/30 bg-white/90 dark:bg-slate-800/90 text-teal-700 dark:text-teal-300 hover:bg-gradient-to-r hover:from-teal-50 hover:to-blue-50 dark:hover:from-teal-900/20 dark:hover:to-blue-900/20 px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-semibold backdrop-blur-sm transition-all duration-300 transform hover:scale-105 rounded-xl shadow-sm hover:shadow-lg w-full sm:w-auto"
               >
-                Download Resume
+                View Resume
                 <Download className="ml-2 h-4 sm:h-5 w-4 sm:w-5" />
               </Button>
             </div>
