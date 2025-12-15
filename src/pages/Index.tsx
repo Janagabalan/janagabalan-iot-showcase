@@ -8,14 +8,20 @@ import Portfolio from "@/components/Portfolio";
 import Contact from "@/components/Contact";
 import FloatingContact from "@/components/FloatingContact";
 import Footer from "@/components/Footer";
+import LoadingScreen from "@/components/LoadingScreen";
 
 const Index = () => {
   const [darkMode, setDarkMode] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
     document.documentElement.classList.toggle('dark');
   };
+
+  if (isLoading) {
+    return <LoadingScreen onComplete={() => setIsLoading(false)} />;
+  }
 
   return (
     <div className={`min-h-screen ${darkMode ? 'dark' : ''}`}>
