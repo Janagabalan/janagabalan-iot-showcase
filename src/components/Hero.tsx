@@ -10,7 +10,7 @@ const Hero = () => {
   };
 
   const viewResume = () => {
-    window.open("https://i.postimg.cc/qMFVtjfD/janagabalan-resume.jpg", '_blank');
+    window.open("/Janagabalan_Resume.pdf", '_blank');
   };
 
   return (
