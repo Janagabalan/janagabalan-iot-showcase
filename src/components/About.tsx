@@ -1,4 +1,4 @@
-import { GraduationCap, MapPin, Calendar, Award } from "lucide-react";
+import { GraduationCap, MapPin, Calendar, Award, ExternalLink } from "lucide-react";
 import useScrollAnimation from "@/hooks/useScrollAnimation";
 
 const About = () => {
@@ -30,14 +30,16 @@ const About = () => {
       role: "IoT Training",
       duration: "1 week",
       date: "August 2024",
-      description: "Gained hands-on experience in IoT technologies and industrial applications"
+      description: "Gained hands-on experience in IoT technologies and industrial applications",
+      certificate: "/certificates/NSIC_Internship.pdf"
     },
     {
       company: "ALAS Robotech Solution, Salem",
       role: "Robotics and IoT",
       duration: "10 days",
       date: "February 2025",
-      description: "Advanced training in robotics integration with IoT systems"
+      description: "Advanced training in robotics integration with IoT systems",
+      certificate: "/certificates/Alas_Internship.pdf"
     }
   ];
 
@@ -179,7 +181,17 @@ const About = () => {
                 </div>
                 <p className="text-sm sm:text-base text-teal-600 dark:text-teal-400 font-medium mb-2">{internship.role}</p>
                 <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mb-3">{internship.duration} • {internship.date}</p>
-                <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">{internship.description}</p>
+                <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed mb-4">{internship.description}</p>
+                <a
+                  href={internship.certificate}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-teal-500 to-blue-500 text-white text-sm font-medium rounded-xl hover:from-teal-600 hover:to-blue-600 transition-all duration-300 shadow-lg hover:shadow-xl"
+                >
+                  <Award className="h-4 w-4" />
+                  View Certificate
+                  <ExternalLink className="h-3 w-3" />
+                </a>
               </div>
             ))}
           </div>
