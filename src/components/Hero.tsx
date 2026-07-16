@@ -95,9 +95,9 @@ const Hero = () => {
               <div className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full bg-gradient-to-br from-teal-400 via-blue-500 to-purple-600 p-1 animate-scale-in shadow-2xl">
                 <div className="w-full h-full rounded-full bg-gradient-to-br from-slate-50 to-white dark:from-slate-800 dark:to-slate-700 flex items-center justify-center backdrop-blur-sm overflow-hidden">
                   <img 
-                    src={heroImage} 
+                    src={heroImage.url} 
                     alt="Janagabalan" 
-                    className="w-full h-full object-cover rounded-full"
+                    className="w-full h-full object-cover rounded-full scale-125 object-[center_20%]"
                   />
                 </div>
               </div>
